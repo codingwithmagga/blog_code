@@ -1,0 +1,63 @@
+name: CMake Build Matrix
+
+on: [push]
+
+jobs:
+  build:
+        
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix: 
+        config: 
+        - {
+            name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
+            os: windows-latest,
+            cc: "cl", cxx: "cl",
+            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          }
+        - {
+            name: "Ubuntu Latest GCC", artifact: "Linux.7z",
+            os: ubuntu-latest,
+            cc: "gcc", cxx: "g++"
+          }
+        - {
+            name: "macOS Latest Clang", artifact: "macOS.7z",
+            os: macos-latest,
+            cc: "clang", cxx: "clang++"
+          }
+
+    steps:    
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    
+    - name: Check cmake version
+      run: |
+        cmake --version  
+        
+    - name: cmake_crashkurs
+      working-directory: cmake_crashkurs
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+
+    - name: cmake_cpp_standard_ex1
+      working-directory: cmake_cpp_standard/Beispiel_1/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_cpp_standard_ex2
+      working-directory: cmake_cpp_standard/Beispiel_2/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+
