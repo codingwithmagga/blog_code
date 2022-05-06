@@ -38,7 +38,7 @@ jobs:
         cmake --version  
         
     - name: cmake_crashkurs
-      working-directory: cmake_crashkurs
+      working-directory: CMake/cmake_crashkurs
       run: |
         mkdir build
         cd build
@@ -46,7 +46,7 @@ jobs:
         cmake --build .
 
     - name: cmake_cpp_standard_ex1
-      working-directory: cmake_cpp_standard/Beispiel_1/
+      working-directory: CMake/cmake_cpp_standard/Beispiel_1/
       run: |
         mkdir build
         cd build
@@ -54,7 +54,7 @@ jobs:
         cmake --build .
         
     - name: cmake_cpp_standard_ex2
-      working-directory: cmake_cpp_standard/Beispiel_2/
+      working-directory: CMake/cmake_cpp_standard/Beispiel_2/
       run: |
         mkdir build
         cd build
