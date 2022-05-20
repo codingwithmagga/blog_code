@@ -60,4 +60,20 @@ jobs:
         cd build
         cmake ..
         cmake --build .
+        
+    - name: cmake_cpp_standard_ex3
+      working-directory: CMake/cmake_cpp_standard/Beispiel_3/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_cpp_standard_ex4
+      working-directory: CMake/cmake_cpp_standard/Beispiel_4/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
 
