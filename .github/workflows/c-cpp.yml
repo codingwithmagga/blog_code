@@ -15,17 +15,20 @@ jobs:
             name: "Windows Latest MSVC", artifact: "Windows-MSVC.7z",
             os: windows-latest,
             cc: "cl", cxx: "cl",
-            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
+            list_files: dir
           }
         - {
             name: "Ubuntu Latest GCC", artifact: "Linux.7z",
             os: ubuntu-latest,
-            cc: "gcc", cxx: "g++"
+            cc: "gcc", cxx: "g++",
+            list_files: ls -l
           }
         - {
             name: "macOS Latest Clang", artifact: "macOS.7z",
             os: macos-latest,
-            cc: "clang", cxx: "clang++"
+            cc: "clang", cxx: "clang++",
+            list_files: ls -l
           }
 
     steps:    
@@ -76,4 +79,13 @@ jobs:
         cd build
         cmake ..
         cmake --build .
+        
+    - name: cmake_libraries_ex1
+      working-directory: CMake/cmake_libraries/Beispiel_1/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        ${{ matrix.config.list_files }}
 
