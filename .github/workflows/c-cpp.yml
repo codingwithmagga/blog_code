@@ -39,6 +39,12 @@ jobs:
     - name: Check cmake version
       run: |
         cmake --version  
+    
+    - name: Install boost
+      uses: MarkusJx/install-boost@v2.0.0
+      id: install-boost
+      with:
+        boost_version: 1.73.0
         
     - name: cmake_crashkurs
       working-directory: CMake/cmake_crashkurs
