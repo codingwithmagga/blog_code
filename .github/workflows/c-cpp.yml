@@ -91,11 +91,19 @@ jobs:
     - name: Archive build files 
       uses: actions/upload-artifact@v3
       with:
-        name: build-files
+        name: build_files_${{ matrix.config.name }}
         path: CMake/cmake_libraries/Beispiel_1/build
     
-    - name: cmake_libraries_ex2
-      working-directory: CMake/cmake_libraries/Beispiel_2/
+    - name: cmake_libraries_ex2_shared
+      working-directory: CMake/cmake_libraries/Beispiel_2/Shared
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_libraries_ex2_static
+      working-directory: CMake/cmake_libraries/Beispiel_2/Static
       run: |
         mkdir build
         cd build
