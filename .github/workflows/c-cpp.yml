@@ -87,5 +87,34 @@ jobs:
         cd build
         cmake ..
         cmake --build .
-        ${{ matrix.config.list_files }}
+
+    - name: Archive build files 
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: CMake/cmake_libraries/Beispiel_1/build
+    
+    - name: cmake_libraries_ex2
+      working-directory: CMake/cmake_libraries/Beispiel_2/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_libraries_ex3
+      working-directory: CMake/cmake_libraries/Beispiel_3/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_libraries_ex4
+      working-directory: CMake/cmake_libraries/Beispiel_4/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
 
