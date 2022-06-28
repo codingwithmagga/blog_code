@@ -135,4 +135,12 @@ jobs:
         cd build
         cmake ..
         cmake --build .
+        
+    - name: cmake_libraries_ex5
+      working-directory: CMake/cmake_libraries/Beispiel_5/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
 
