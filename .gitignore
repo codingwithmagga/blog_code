@@ -33,3 +33,9 @@
 
 # build folder
 **/build/**
+
+# ignore lib files in specific build folder
+!CMake/cmake_libraries/Beispiel_5/libs/mathe/*.so
+!CMake/cmake_libraries/Beispiel_5/libs/mathe/*.dll
+!CMake/cmake_libraries/Beispiel_5/libs/mathe/*.lib
+!CMake/cmake_libraries/Beispiel_5/libs/mathe/*.dylib

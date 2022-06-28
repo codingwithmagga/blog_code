@@ -16,7 +16,7 @@ add_library(CodingWithMagga::mathe SHARED IMPORTED)
 set_property(
   TARGET CodingWithMagga::mathe
   PROPERTY
-    IMPORTED_LOCATION ${LIB_PATH}/libmathe_shared.so
+    IMPORTED_LOCATION ${LIB_PATH}/${LIB_FILE}
 )
 target_include_directories(
   CodingWithMagga::mathe 
