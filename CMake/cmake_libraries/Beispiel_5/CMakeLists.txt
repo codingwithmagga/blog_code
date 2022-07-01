@@ -7,7 +7,7 @@ set(LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/libs/mathe)
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
   set(LIB_FILE libmathe_shared.dylib) 
 elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
-  set(LIB_FILE mathe_shared.lib) 
+  set(LIB_FILE mathe_shared.dll) 
 else() # Assume Linux-System
   set(LIB_FILE libmathe_shared.so) 
 endif()
@@ -22,7 +22,7 @@ if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
   set_target_properties(
     CodingWithMagga::mathe
     PROPERTIES
-      IMPORTED_IMPLIB ${LIB_PATH}/mathe_shared.dll
+      IMPORTED_IMPLIB ${LIB_PATH}/mathe_shared.lib
   ) 
 endif()   
 target_include_directories(
