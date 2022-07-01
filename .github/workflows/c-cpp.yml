@@ -94,11 +94,11 @@ jobs:
         cmake ..
         cmake --build .
 
-    - name: Archive build files 
-      uses: actions/upload-artifact@v3
-      with:
-        name: build_files_${{ matrix.config.name }}
-        path: CMake/cmake_libraries/Beispiel_1/build
+#   - name: Archive build files 
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: build_files_${{ matrix.config.name }}
+#        path: CMake/cmake_libraries/Beispiel_1/build
     
     - name: cmake_libraries_ex2_shared
       working-directory: CMake/cmake_libraries/Beispiel_2/Shared
@@ -138,6 +138,14 @@ jobs:
         
     - name: cmake_libraries_ex5
       working-directory: CMake/cmake_libraries/Beispiel_5/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+    
+    - name: cmake_libraries_ex6
+      working-directory: CMake/cmake_libraries/Beispiel_6/
       run: |
         mkdir build
         cd build
