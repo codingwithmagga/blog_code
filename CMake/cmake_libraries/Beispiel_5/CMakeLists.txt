@@ -13,10 +13,14 @@ else() # Assume Linux-System
 endif()
 
 add_library(CodingWithMagga::mathe SHARED IMPORTED)
-set_property(
-  TARGET CodingWithMagga::mathe
-  PROPERTY
+set_target_properties(
+  CodingWithMagga::mathe
+  PROPERTIES
     IMPORTED_LOCATION ${LIB_PATH}/${LIB_FILE}
+    IMPORTED_LOCATION_DEBUG ${LIB_PATH}/${LIB_FILE}
+    IMPORTED_LOCATION_RELEASE ${LIB_PATH}/${LIB_FILE}
+    IMPORTED_LOCATION_MINSIZEREL ${LIB_PATH}/${LIB_FILE}
+    IMPORTED_LOCATION_RELWITHDEBINFO ${LIB_PATH}/${LIB_FILE}
 )
 target_include_directories(
   CodingWithMagga::mathe 
