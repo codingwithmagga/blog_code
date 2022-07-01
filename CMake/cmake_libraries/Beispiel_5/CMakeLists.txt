@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7...3.22)
 
 project(imported_lib LANGUAGES CXX)
 
-set(LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/libs/mathe/)
+set(LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/libs/mathe)
 
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
   set(LIB_FILE libmathe_shared.dylib) 
