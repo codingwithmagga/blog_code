@@ -12,23 +12,24 @@ else() # Assume Linux-System
   set(LIB_FILE libmathe_shared.so) 
 endif()
 
-add_library(CodingWithMagga::mathe SHARED IMPORTED)
+add_library(CodingWithMagga::mathe SHARED IMPORTED) 
+target_include_directories(
+  CodingWithMagga::mathe 
+  INTERFACE ${LIB_PATH}
+)
 set_target_properties(
   CodingWithMagga::mathe
   PROPERTIES
     IMPORTED_LOCATION ${LIB_PATH}/${LIB_FILE}
-)
+) 
+
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
   set_target_properties(
     CodingWithMagga::mathe
     PROPERTIES
       IMPORTED_IMPLIB ${LIB_PATH}/mathe_shared.lib
   ) 
-endif()   
-target_include_directories(
-  CodingWithMagga::mathe 
-  INTERFACE ${LIB_PATH}
-)
+endif() 
 
 add_executable(main src/main.cpp)
 target_link_libraries(main PRIVATE CodingWithMagga::mathe)
