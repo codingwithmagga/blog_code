@@ -151,4 +151,35 @@ jobs:
         cd build
         cmake ..
         cmake --build .
-
+        
+    - name: cmake_variables_ex1
+      working-directory: CMake/cmake_variables/Beispiel_1/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_variables_ex2
+      working-directory: CMake/cmake_variables/Beispiel_2/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_variables_ex3
+      working-directory: CMake/cmake_variables/Beispiel_3/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        
+    - name: cmake_variables_ex4
+      working-directory: CMake/cmake_variables/Beispiel_4/
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
