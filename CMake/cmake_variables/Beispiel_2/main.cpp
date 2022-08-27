@@ -2,10 +2,6 @@
 
 int main()
 {
-    int position[2] = {1, 2};
-    auto [x, y] = position;
-
-    std::cout << "Position: " << x << " " << y << std::endl;
-    
+    std::cout << "Hello World!" << std::endl;
     return 0;
 }
